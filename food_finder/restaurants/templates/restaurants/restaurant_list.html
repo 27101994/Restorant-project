@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant List</title>
+</head>
+<body>
+    <h1>Restaurant List</h1>
+    <ul>
+        {% for restaurant in restaurants %}
+            <li>
+                <strong>{{ restaurant.name }}</strong><br>
+                <em>Rating:</em> {{ restaurant.aggregate_rating }} - <em>Cuisines:</em> {{ restaurant.cuisines }}<br>
+                <em>Address:</em> {{ restaurant.address }}, {{ restaurant.locality }}, {{ restaurant.locality_verbose }}<br>
+                <em>Average Cost for Two:</em> {{ restaurant.average_cost_for_two }} {{ restaurant.currency }}<br>
+                <em>Has Table Booking:</em> {% if restaurant.has_table_booking %} Yes {% else %} No {% endif %}<br>
+                <em>Has Online Delivery:</em> {% if restaurant.has_online_delivery %} Yes {% else %} No {% endif %}<br>
+                <em>Is Delivering Now:</em> {% if restaurant.is_delivering_now %} Yes {% else %} No {% endif %}<br>
+            </li>
+            <hr> <!-- Optional: Add a horizontal line between restaurants for better readability -->
+        {% endfor %}
+    </ul>
+</body>
+</html>
